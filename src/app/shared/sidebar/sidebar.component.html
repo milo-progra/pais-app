@@ -1,0 +1,12 @@
+<h2>Busquedas</h2>
+<hr>
+<ul class="list-group">
+    <!-- 
+            routerLinkActive="active"                               para cambiar el color del boton cuando seleccione esa url
+            [routerLinkActiveOptions]="{ exact: true }"             Opcion para las rutas con path vacio para que solo cambien de color si estoy en la ruta principal       
+        -->
+    <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="list-group-item">
+        Buscar pais</li>
+    <li routerLink="region" routerLinkActive="active" class="list-group-item">Buscar region</li>
+    <li routerLink="capital" routerLinkActive="active" class="list-group-item">Buscar capital</li>
+</ul>
