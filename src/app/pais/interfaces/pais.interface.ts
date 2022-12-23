@@ -8,11 +8,12 @@
 // match the expected interface, even if the JSON is valid.
 
 export interface Country {
-    name:           string;
+    name:           Name;
     topLevelDomain: string[];
     alpha2Code:     string;
     alpha3Code:     string;
     cca2:           string;
+    ccn3:           string;
     callingCodes:   string[];
     capital?:       string;
     altSpellings:   string[];
@@ -63,15 +64,24 @@ export interface RegionalBloc {
 }
 
 export interface Translations {
-    br: string;
-    pt: string;
-    nl: string;
-    hr: string;
-    fa: string;
-    de: string;
-    es: string;
-    fr: string;
-    ja: string;
-    it: string;
-    hu: string;
+    ara: Ara;
+    cym: Cym
+    bre: Bre
 }
+
+
+export interface Ara {
+    common: string;
+}
+
+export interface Bre {
+    common: string;
+}
+export interface Cym {
+    common: string;
+}
+
+export interface Name {
+    common: string;
+}
+

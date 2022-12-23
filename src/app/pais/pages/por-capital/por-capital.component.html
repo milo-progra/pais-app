@@ -1,1 +1,31 @@
-<p>por-capital works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+
+    <h2>Por Capital</h2>
+    <hr>
+    
+    <div class="row">
+        <div class="col">
+            <!-- defino que al escuchar que llego la varible onEnter se ejecute la funcion buscar() de por-capita entregandole el $event que seria la informacion del formulario  -->
+            <app-pais-input 
+            
+            (onEnter)="buscar( $event )"
+            placeholder="Ingresa una capital..........."
+            
+            ></app-pais-input>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="hayError">
+    <div class="alert alert-danger">
+        No se encontro nada con el termino {{termino}}
+    </div>
+</div>
+
+
+<div class="row" *ngIf="!hayError && paises.length > 0">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
+

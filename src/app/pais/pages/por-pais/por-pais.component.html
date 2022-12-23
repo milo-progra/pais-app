@@ -1,15 +1,39 @@
-<h2>Por Pais</h2>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster">
 
-
-<div class="row">
-    <div class="col">
-        <!-- defino que al escuchar la variable onEnter se ejecute la funcion buscar entregandole el evento que sera el termino del component pais-input  -->
-        <app-pais-input (onEnter)="buscar( $event )"></app-pais-input>
+    <h2>Por Pais</h2>
+    <hr>
+    
+    
+    <div class="row">
+        <div class="col">
+            <!-- defino que al escuchar la variable onEnter se ejecute la funcion buscar entregandole el evento que sera el termino del component pais-input  -->
+            <app-pais-input 
+            (onEnter)="buscar( $event )"
+            placeholder="Ingresa un pais..........."
+            (onDebounce)="sugerencias( $event )"
+            ></app-pais-input>
+        </div>
     </div>
-</div>
+ 
+    <ul *ngIf="mostrarSugerencias"
+        class="list-group">
+        <li *ngFor="let pais of paisesSugerencia" class="list-group-item list-group-item-action">
+           <a [routerLink]="['/pais', pais.cca2]" >
+               {{pais.name.common}}
+            </a>
+            
+        </li>
+        <li class="list-group-item list-group-item-action"
+            (click)="buscarSugerido(termino)">
+            <a  class="nav-link">
+                buscar "{{ termino }}"
+            </a>
+        </li>
+    </ul>
 
-<hr>
+    
+    <hr>
+</div>
 
 <div *ngIf="hayError">
     <div class="alert alert-danger">
